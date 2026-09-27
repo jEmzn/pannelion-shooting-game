@@ -17,8 +17,8 @@ The project uses the Universal 2D template and generated colored shapes. All gam
 
 The Android build targets landscape orientation and uses Unity's Android Build Support, SDK, NDK, and OpenJDK. The included APK is a development build.
 
-## Windows project path
+## Unity asset import
 
-Open this project from a short folder path, such as the included `TDS` working copy or `C:\Unity\TDS` after extracting the source archive. Unity's URP package contains deeply nested files. In the original long workspace folder, one package asset resolves to a 261-character path and the Editor can report `Host type is not matching any asset type` for `TraceRenderingLayerMask.urtshader`. The same project imported cleanly from the shorter `TDS` path. The in-game product name remains **Top Down Shooter Demo**.
+Unity 6.6 can report `Host type is not matching any asset type` for the URP package's `TraceRenderingLayerMask.urtshader`. This error persisted after moving the project to a short path. In this project, **Assets > Reimport All** rebuilt Unity's cached `Library` data and cleared the error. A short project path is still useful on Windows, but moving the folder alone does not reset old import data.
 
 You may press Play directly from any stage scene while testing in the Editor. Stage scenes create the game flow and HUD automatically when the Start scene was not loaded first.

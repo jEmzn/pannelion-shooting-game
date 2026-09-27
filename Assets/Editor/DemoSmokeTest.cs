@@ -114,7 +114,7 @@ namespace TopDownShooter.Editor
 
         private static void KillAllEnemies()
         {
-            foreach (var enemy in UnityEngine.Object.FindObjectsByType<EnemyBrain>(FindObjectsSortMode.None))
+            foreach (var enemy in UnityEngine.Object.FindObjectsByType<EnemyBrain>())
                 enemy.GetComponent<Health>().TakeDamage(100);
         }
 
@@ -128,7 +128,7 @@ namespace TopDownShooter.Editor
 
         private static void CheckTwoSticks()
         {
-            var sticks = UnityEngine.Object.FindObjectsByType<VirtualStick>(FindObjectsSortMode.None);
+            var sticks = UnityEngine.Object.FindObjectsByType<VirtualStick>();
             Check(sticks.Length == 2, "Two virtual sticks exist");
             var move = sticks.Single(stick => stick.name == "Movement Stick");
             var aim = sticks.Single(stick => stick.name == "Aim Stick");
