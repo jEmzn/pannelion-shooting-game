@@ -46,7 +46,8 @@ namespace TopDownShooter
 
         private void FixedUpdate()
         {
-            if (!health.IsAlive || player == null || !player.Health.IsAlive || GameFlow.Instance.IsLocked)
+            if (!health.IsAlive || player == null || !player.Health.IsAlive ||
+                GameFlow.Instance == null || GameFlow.Instance.IsLocked)
             {
                 body.linearVelocity = Vector2.zero;
                 return;
@@ -67,7 +68,8 @@ namespace TopDownShooter
 
         private void Update()
         {
-            if (!health.IsAlive || player == null || !player.Health.IsAlive || GameFlow.Instance.IsLocked) return;
+            if (!health.IsAlive || player == null || !player.Health.IsAlive ||
+                GameFlow.Instance == null || GameFlow.Instance.IsLocked) return;
             if (kind == EnemyKind.Chaser) return;
             var toPlayer = (Vector2)(player.transform.position - transform.position);
             if (toPlayer.sqrMagnitude < 0.01f) return;

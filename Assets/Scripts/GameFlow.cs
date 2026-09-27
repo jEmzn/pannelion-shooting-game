@@ -23,7 +23,10 @@ namespace TopDownShooter
             StageNumber = 0;
         }
 
-        private void Start() => ui.ShowStart();
+        private void Start()
+        {
+            if (Stage == null) ui.ShowStart();
+        }
 
         public void BindStage(StageController stage)
         {

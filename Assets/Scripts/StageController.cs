@@ -34,7 +34,10 @@ namespace TopDownShooter
                 remaining++;
                 objective.Died += OnObjectiveDied;
             }
-            GameFlow.Instance?.BindStage(this);
+            // A stage can also be opened directly from the Editor for testing.
+            if (GameFlow.Instance == null)
+                new GameObject("Game Flow").AddComponent<GameFlow>();
+            GameFlow.Instance.BindStage(this);
             if (remaining == 0) Complete();
         }
 
